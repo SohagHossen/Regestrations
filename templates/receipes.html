@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Receipes</title>
+</head>
+<body>
+<p>This is receipes page</p>
+
+
+<form action=" " method="POST"  enctype="multipart/form-data">
+    {% csrf_token %}
+    <br>
+    <lable for="rename">Receipes Name</lable>
+    <input type="text" placeholder="Receipes Name" name="rec_name" id="rename"> <br> <br>
+
+    <lable for="uprice">Unit Price</lable>
+    <input type="number" placeholder="Unit Price " name="rec_price" id="uprice"> <br> <br>
+
+     <lable for="descriptions">Descriptions</lable>
+     <textarea name="rec_dis" placeholder="Descriptions" id="descriptions"></textarea> <br> <br>
+
+    <lable for="rpic">Image</lable>
+    <input type="file" placeholder="Image" name="rec_image" id="rpic"> <br> <br>
+
+    <button type="submit" id="receipes_submit"> Add Receipes </button>
+</form>
+
+</body>
+</html>

@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'static',
     'templates',
     'login',
-    'crud'
+    'crud',
+    'vegetable',
 
 ]
 
