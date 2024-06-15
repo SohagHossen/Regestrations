@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{#{% load static %}#}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Receipes show</title>
+</head>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<table  style="width:100%">
+
+     <tr>
+        <th>Receipes Name</th>
+        <th>Receipes Price</th>
+         <th>Receipes Descriptions</th>
+        <th>Image</th>
+         <th> Action </th>
+     </tr>
+
+     {% for i in data_rece %}
+      <tr>
+          <td>{{ i.rec_name }}</td>
+          <td>{{ i.rec_price }}</td>
+          <td>{{i.rec_dis}}</td>
+         <td>
+             <img src="/images/{{ i.rec_image }}" alt="wait" style="height: 100px " >    </td>
+      <td><a href="{{ i.id}}"> Delete</a></td>
+      </tr>
+    {% endfor %}
+     </table>
+
+
+</body>
+</html>
