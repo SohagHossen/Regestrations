@@ -24,6 +24,11 @@ def receipes(request):
 def show_receipes(request):
 
     data_rece = Vegetable.objects.all()
+
+    #Search function working
+    if request.GET.get('rec_name_search'):
+        data_rece = Vegetable.objects.filter(rec_name__icontains=request.GET.get('rec_name_search'))
+    
     context = {'data_rece': data_rece}
     return render(request,"templates/show_receipes.html",context)
 
@@ -40,7 +45,7 @@ def update_receipes(request, id):
         rec_price = data.get('rec_price')
         rec_dis = data.get('rec_dis')
         rec_image = request.FILES.get('rec_image')
-        # update value 
+        # update value
         up.rec_name=rec_name
         up.rec_price=rec_price
         up.rec_dis=rec_dis
