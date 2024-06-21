@@ -31,3 +31,26 @@ def delete_receipes(request, id):
     de=Vegetable.objects.get(id=id)
     de.delete()
     return redirect('show_receipes')
+
+def update_receipes(request, id):
+    up=Vegetable.objects.get(id=id)
+    if request.method =='POST':
+        data = request.POST
+        rec_name = data.get('rec_name')
+        rec_price = data.get('rec_price')
+        rec_dis = data.get('rec_dis')
+        rec_image = request.FILES.get('rec_image')
+        # update value 
+        up.rec_name=rec_name
+        up.rec_price=rec_price
+        up.rec_dis=rec_dis
+        if rec_image:
+            up.rec_image=rec_image
+            up.save()
+            return redirect('show_receipes')
+
+    context = {'update_rece': up}
+
+    return render(request, 'templates/update_receipes.html',context)
+
+    

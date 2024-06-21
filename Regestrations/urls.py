@@ -26,7 +26,7 @@ from Regestrations import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('login.urls')),
-    path("rec/", include('vegetable.urls')),
+    path("", include('vegetable.urls')),
 
 
 ]
